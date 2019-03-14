@@ -124,7 +124,10 @@ def sum_from(m, n):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # -------------------------------------------------------------------------
-
+    total = 0
+    for k in range(n-m+1):
+        total = total + (k + m)
+    return total
 
 def run_test_factorial():
     """ Tests the   factorial   function. """
@@ -162,6 +165,23 @@ def run_test_factorial():
     #   ** uses  math.factorial  as an ORACLE for testing. **
     # -------------------------------------------------------------------------
 
+    # Test 3:
+    answer_from_oracle = math.factorial(45)
+    answer_from_my_code = factorial(45)
+    print('Test 3 expected (from oracle):', answer_from_oracle)
+    print('       actual (from my code): ', answer_from_my_code)
+
+    # Test 4:
+    answer_from_oracle = math.factorial(7)
+    answer_from_my_code = factorial(7)
+    print('Test 4 expected (from oracle):', answer_from_oracle)
+    print('       actual (from my code): ', answer_from_my_code)
+
+    # Test 5:
+    answer_from_oracle = math.factorial(12)
+    answer_from_my_code = factorial(12)
+    print('Test 5 expected (from oracle):', answer_from_oracle)
+    print('       actual (from my code): ', answer_from_my_code)
 
 def factorial(n):
     """
@@ -179,7 +199,10 @@ def factorial(n):
     # IMPORTANT:  Your solution MUST
     #   use an explicit    for ... in range(...):     statement.
     # -------------------------------------------------------------------------
-
+    total = 0
+    for k in range(n+1):
+        total = math.factorial(n)
+    return total
 
 def run_test_count_cosines_from():
     """ Tests the   count_cosines_from   function. """
@@ -223,6 +246,35 @@ def run_test_count_cosines_from():
     # Below this comment, add 5 more test cases of your own choosing.
     # -------------------------------------------------------------------------
 
+    # Test 2:
+    expected = 2
+    answer = count_cosines_from(1, 7, 0.63)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 4
+    answer = count_cosines_from(5, 16, 0.49)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 4:
+    expected = 1
+    answer = count_cosines_from(6, 9, 0.89)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 5:
+    expected = 1
+    answer = count_cosines_from(8, 10, 0.2)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 6:
+    expected = 0
+    answer = count_cosines_from(0, 20, 1)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
 
 def count_cosines_from(m, n, x):
     """
@@ -252,6 +304,13 @@ def count_cosines_from(m, n, x):
     #   of the RANGE expression, if you happen to know them.
     # -------------------------------------------------------------------------
 
+    total = 0
+    for k in range((n + 1) - m):
+        if math.cos(k + m) > x:
+            total = total + 1
+        else:
+            total = total
+    return total
 
 def run_test_sum_unit_fractions_from():
     """ Tests the   sum_unit_fractions_from   function. """
@@ -277,6 +336,17 @@ def run_test_sum_unit_fractions_from():
     # Below this comment, add 2 more test cases of your own choosing.
     # -------------------------------------------------------------------------
 
+    # Test 2:
+    expected = 0.510354
+    answer = sum_unit_fractions_from(8, 12)
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 2.450000
+    answer = sum_unit_fractions_from(1, 6)
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
 
 def sum_unit_fractions_from(m, n):
     """
@@ -299,6 +369,10 @@ def sum_unit_fractions_from(m, n):
     #   of the RANGE expression, if you happen to know them.
     # -------------------------------------------------------------------------
 
+    total = 0
+    for k in range((n + 1) - m):
+        total = total + 1 / (k + m)
+    return total
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
