@@ -109,9 +109,14 @@ def draw_parallel_lines(n, point, length, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ###########################################################################
     # -------------------------------------------------------------------------
+    x1 = point.x
+    y1 = point.y
 
     for k in range(n):
-        line1 = rg.Line(rg.Point())
+        line = rg.Line(rg.Point(x1, y1 + (k * 30)), rg.Point(x1 + length, point.y + (k * 30)))
+        line.attach_to(window)
+    window.render()
+
 
 def run_test_draw_lines():
     """ Tests the   draw_lines  function. """
@@ -177,6 +182,13 @@ def draw_lines(n, point, window):
     ###########################################################################
     # -------------------------------------------------------------------------
 
+    x = point.x
+    y = point.y + 100
+    for k in range(n):
+        line = rg.Line(rg.Point(x, point.y), rg.Point(x + 100, y))
+        line.attach_to(window)
+        y = y - (200 / (n - 1))
+    window.render()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
